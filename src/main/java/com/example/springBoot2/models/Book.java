@@ -1,19 +1,42 @@
 package com.example.springBoot2.models;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Book {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "year")
     private int year;
+
+    @Column(name = "author")
     private String author;
+
+    @Column(name = "pages")
     private int pages;
 
     public Book() {
     }
 
     public Book(String name, String author, int year, int pages) {
+        this.id = id;
         this.name = name;
         this.year = year;
         this.author = author;
         this.pages = pages;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

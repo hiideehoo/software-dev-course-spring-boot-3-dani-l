@@ -1,19 +1,42 @@
 package com.example.springBoot2.models;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Movie  {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "year")
     private int year;
+
+    @Column(name = "director")
     private String director;
+
+    @Column(name = "runtime")
     private int runtime;
 
     public Movie() {
     }
 
     public Movie(String name, String director, int year, int duration) {
+        this.id = id;
         this.name = name;
         this.year = year;
         this.director = director;
         this.runtime = duration;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

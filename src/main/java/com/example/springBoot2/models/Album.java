@@ -1,20 +1,42 @@
 package com.example.springBoot2.models;
 
+import jakarta.persistence.*;
 
+@Entity
 public class Album {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "year")
     private int year;
+
+    @Column(name = "artist")
     private String artist;
+
+    @Column(name = "tracks")
     private int tracks;
 
     public Album() {
     }
 
     public Album(String name, String artist, int year, int tracks) {
+        this.id = id;
         this.name = name;
         this.year = year;
         this.artist = artist;
         this.tracks = tracks;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
